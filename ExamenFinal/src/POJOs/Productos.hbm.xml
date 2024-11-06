@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-nov-2024 20:57:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Productos" table="productos" catalog="practicafinal" optimistic-lock="version">
+        <id name="idProducto" type="java.lang.Integer">
+            <column name="ID_PRODUCTO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="categoria" class="POJOs.Categoria" fetch="select">
+            <column name="ID_CATEGORIA" />
+        </many-to-one>
+        <many-to-one name="provadores" class="POJOs.Provadores" fetch="select">
+            <column name="ID_PROVEEDOR" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="45" />
+        </property>
+        <property name="precio" type="java.lang.Integer">
+            <column name="PRECIO" />
+        </property>
+    </class>
+</hibernate-mapping>

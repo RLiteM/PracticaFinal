@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-nov-2024 20:57:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Provadores" table="provadores" catalog="practicafinal" optimistic-lock="version">
+        <id name="idProveedor" type="java.lang.Integer">
+            <column name="ID_PROVEEDOR" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="45" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="45" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="45" />
+        </property>
+        <set name="productoses" table="productos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROVEEDOR" />
+            </key>
+            <one-to-many class="POJOs.Productos" />
+        </set>
+    </class>
+</hibernate-mapping>

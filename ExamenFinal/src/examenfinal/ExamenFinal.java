@@ -15,6 +15,7 @@ public class ExamenFinal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        System.out.println("Producto" + CRUDs.CRUDsProductos.crear("Banano", 10, 1, 1));
      
     }
     

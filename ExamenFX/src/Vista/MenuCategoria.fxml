@@ -7,8 +7,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MenuCategoriaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controlador.MenuCategoriaController">
     <stylesheets>
-        <URL value="@menucategoria.css"/>
+        <URL value="@menucategoria.css" />
     </stylesheets>
+   <children>
+      <Label layoutX="133.0" layoutY="28.0" text="Descripcion" />
+      <TextField fx:id="txtDescripcion" layoutX="214.0" layoutY="24.0" />
+      <Button layoutX="135.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnGuardar" text="Guardar" />
+      <Button layoutX="255.0" layoutY="70.0" mnemonicParsing="false" onAction="#btnActualizar" text="Actualizar" />
+      <TableView fx:id="tblCategoria" layoutX="123.0" layoutY="147.0" prefHeight="200.0" prefWidth="409.0">
+        <columns>
+          <TableColumn fx:id="colCategoria" prefWidth="121.0" text="id Categoria" />
+          <TableColumn fx:id="colDescripcion" prefWidth="170.0" text="Descripcion" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

@@ -16,6 +16,7 @@ public class ExamenFinal {
      */
     public static void main(String[] args) {
         //System.out.println("Producto"+CRUDs.CRUDsProductos.universoProd());
+        System.out.println(""+CRUDs.CRUDsProductos.Actualiar(4, "Lechuga", 1, 1, 1));
      
     }
     

@@ -13,6 +13,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -82,6 +83,49 @@ public class CRUDsProductos {
             flag = true;
 
             //}
+            transaction.commit();
+
+        } catch (Exception e) {
+            transaction.rollback();
+        } finally {
+            session.close();
+        }
+        return flag;
+    }
+     public static boolean Actualiar(Integer idProducto, String nombreProducto, Integer precio, Integer idCategoria, Integer idProveedores) {
+
+        boolean flag = false;
+ Session session = HibernateUtil.HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Productos.class);
+        criteria.add(Restrictions.eq("idProducto", idProducto)); // Corregir a "idCategoria"
+        Productos actualizar = (Productos) criteria.uniqueResult(); // Obtener la persona existente
+   
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            if (actualizar!=null) {
+           // Productos insert = new Productos();
+            
+            actualizar.setNombreProducto(nombreProducto);
+            actualizar.setPrecio(precio);
+            // aqui es donde relaciono categoria 
+            Categoria categoria = new Categoria();
+            categoria.setIdCategoria(idCategoria);
+            actualizar.setCategoria(categoria);
+            // aqui es donde relaciono provedores
+            
+            // aqui es donde relaciono la relacion 
+            Provadores provadores = new Provadores();
+            provadores.setIdProveedor(idProveedores);  // ESTO EST MUY IMPORANTE, 
+            actualizar.setProvadores(provadores);
+            
+            
+            session.update(actualizar);
+            flag = true;
+
+            }
             transaction.commit();
 
         } catch (Exception e) {

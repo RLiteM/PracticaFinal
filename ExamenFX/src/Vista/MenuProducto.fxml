@@ -29,7 +29,7 @@
             <TableColumn fx:id="colProveedor" prefWidth="118.0" text="Proveedor" />
         </columns>
       </TableView>
-      <ComboBox fx:id="txtCategoria" layoutX="382.0" layoutY="36.0" onAction="#chCatategoria" prefWidth="150.0" />
-      <ComboBox fx:id="txtProveedor" layoutX="382.0" layoutY="68.0" onAction="#chProveedor" prefWidth="150.0" />
+      <ChoiceBox fx:id="txtCatategoria" layoutX="382.0" layoutY="28.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="txtProveedor" layoutX="382.0" layoutY="68.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

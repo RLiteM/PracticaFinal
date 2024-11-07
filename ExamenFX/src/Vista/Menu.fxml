@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controlador.MenuController">
+    <stylesheets>
+        <URL value="@menu.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="115.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnProveedor" text="Proveedor" />
+      <Button layoutX="229.0" layoutY="117.0" mnemonicParsing="false" onAction="#btnProducto" text="Producto" />
+      <Button layoutX="339.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnCategoria" text="Categoria" />
+   </children>
+</AnchorPane>

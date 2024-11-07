@@ -29,7 +29,7 @@ public class CRUDsProveedor {
             Criteria criteria = session.createCriteria(Provadores.class);
             criteria.setProjection(Projections.projectionList()
                     .add(Projections.property("idProveedor"))
-                    .add(Projections.property("nombre"))
+                    .add(Projections.property("nombreProveedor"))
                     .add(Projections.property("direccion"))
                     .add(Projections.property("telefono"))
             );
@@ -45,7 +45,7 @@ public class CRUDsProveedor {
         return lista;
     }
 
-    public static boolean crear(String nombre, String direccion, String telefono) {
+    public static boolean crear(String nombreProveedor, String direccion, String telefono) {
 
         boolean flag = false;
         Session session = HibernateUtil.HibernateUtil.getSessionFactory().openSession();
@@ -61,7 +61,7 @@ public class CRUDsProveedor {
             Provadores insert = new Provadores(); // si no hay if y estado se usa este
 
             insert = new Provadores();
-            insert.setNombre(nombre);
+            insert.setNombreProveedor(nombreProveedor);
             insert.setDireccion(direccion);
             insert.setTelefono(telefono);
             session.save(insert);
@@ -78,7 +78,7 @@ public class CRUDsProveedor {
         return flag;
     }
 
-    public static boolean actualizar(Integer idProvadores, String nombre, String direccion, String telefono) {
+    public static boolean actualizar(Integer idProvadores, String nombreProveedor, String direccion, String telefono) {
         boolean flag = false;
         Session session = HibernateUtil.HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Provadores.class);
@@ -90,7 +90,7 @@ public class CRUDsProveedor {
             transaction = session.beginTransaction();
 
             if (insert != null) { // Si la persona existe
-                insert.setNombre(nombre);   // Actualiza los campos
+                insert.setNombreProveedor(nombreProveedor);   // Actualiza los campos
                 insert.setDireccion(direccion);
                 insert.setTelefono(telefono);
                 session.update(insert);     // Guarda los cambios en la base de datos

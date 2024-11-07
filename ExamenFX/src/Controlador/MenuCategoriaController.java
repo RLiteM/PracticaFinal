@@ -19,6 +19,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -36,6 +37,7 @@ public class MenuCategoriaController implements Initializable {
     private TableColumn<?, ?> colCategoria;
     @FXML
     private TableColumn<?, ?> colDescripcion;
+     private Integer idCategoriaV;
 
     /**
      * Initializes the controller class.
@@ -49,9 +51,9 @@ public class MenuCategoriaController implements Initializable {
     @FXML
     private void btnGuardar(ActionEvent event) {
         try {
-            String descripcion;
-            descripcion = txtDescripcion.getText();
-            if (CRUDs.CRUDsCategoria.crear(descripcion)) {
+            String nombreCategoria;
+            nombreCategoria = txtDescripcion.getText();
+            if (CRUDs.CRUDsCategoria.crear(nombreCategoria)) {
                 mostrar();
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setTitle("Informacion");
@@ -78,6 +80,32 @@ public class MenuCategoriaController implements Initializable {
 
     @FXML
     private void btnActualizar(ActionEvent event) {
+                try {
+            String nombreCategoria;
+            nombreCategoria = txtDescripcion.getText();
+            if (CRUDs.CRUDsCategoria.actualizar(idCategoriaV, nombreCategoria)) {
+                mostrar();
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setTitle("Informacion");
+                alerta.setHeaderText(null);
+                alerta.setContentText("Operacion Exitosa");
+                alerta.showAndWait();
+                limpiar();
+            } else {
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setTitle("Informacion IMPORTANTE");
+                alerta.setHeaderText(null);
+                alerta.setContentText("No eres un papulince :'v");
+                alerta.showAndWait();
+            }
+        } catch (Exception e) {
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Informacion Importante");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Error en: " + e);
+            alerta.showAndWait();
+
+        }
     }
 
     public void mostrar() {
@@ -88,13 +116,22 @@ public class MenuCategoriaController implements Initializable {
 
         }
         this.colCategoria.setCellValueFactory(new PropertyValueFactory("idCategoria"));
-        this.colDescripcion.setCellValueFactory(new PropertyValueFactory("descripcion"));
+        this.colDescripcion.setCellValueFactory(new PropertyValueFactory("nombreCategoria"));
         tblCategoria.setItems(listaCategoria);
     }
 
     public void limpiar() {
         txtDescripcion.setText("");
 
+    }
+
+    @FXML
+    private void selecionarModificar(MouseEvent event) {
+        TablaCategoria c = this.tblCategoria.getSelectionModel().getSelectedItem();
+        txtDescripcion.setText(c.getNombreCategoria());
+        idCategoriaV = c.getIdCategoria();
+        
+        
     }
 
 }

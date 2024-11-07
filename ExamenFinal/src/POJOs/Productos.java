@@ -1,5 +1,5 @@
 package POJOs;
-// Generated 05-nov-2024 20:57:19 by Hibernate Tools 4.3.1
+// Generated 7/11/2024 03:15:55 PM by Hibernate Tools 4.3.1
 
 
 
@@ -12,16 +12,16 @@ public class Productos  implements java.io.Serializable {
      private Integer idProducto;
      private Categoria categoria;
      private Provadores provadores;
-     private String descripcion;
+     private String nombreProducto;
      private Integer precio;
 
     public Productos() {
     }
 
-    public Productos(Categoria categoria, Provadores provadores, String descripcion, Integer precio) {
+    public Productos(Categoria categoria, Provadores provadores, String nombreProducto, Integer precio) {
        this.categoria = categoria;
        this.provadores = provadores;
-       this.descripcion = descripcion;
+       this.nombreProducto = nombreProducto;
        this.precio = precio;
     }
    
@@ -46,12 +46,12 @@ public class Productos  implements java.io.Serializable {
     public void setProvadores(Provadores provadores) {
         this.provadores = provadores;
     }
-    public String getDescripcion() {
-        return this.descripcion;
+    public String getNombreProducto() {
+        return this.nombreProducto;
     }
     
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
     public Integer getPrecio() {
         return this.precio;

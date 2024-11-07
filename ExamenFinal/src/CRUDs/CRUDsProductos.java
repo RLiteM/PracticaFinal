@@ -26,15 +26,15 @@ public class CRUDsProductos {
         try {
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Productos.class);
-            criteria.createAlias("categoria", "cat");
+           criteria.createAlias("categoria", "cat");
             criteria.createAlias("provadores", "prov");
 
             criteria.setProjection(Projections.projectionList()
                     .add(Projections.property("idProducto"))
-                    .add(Projections.property("descripcion"))
+                    .add(Projections.property("nombreProducto"))
                     .add(Projections.property("precio"))
-                    .add(Projections.property("cat.categoria"))
-                    .add(Projections.property("prov.provadores"))
+                    .add(Projections.property("cat.nombreCategoria")) // segun el que queres traer
+                    .add(Projections.property("prov.nombreProveedor")) //segun el que queres traer
             );
             criteria.addOrder(Order.desc("idProducto"));
             lista = criteria.list();
@@ -48,7 +48,7 @@ public class CRUDsProductos {
         return lista;
     }
 
-    public static boolean crear(String descripcion, Integer precio, Integer idCategoria, Integer idProveedores) {
+    public static boolean crear(String nombreProducto, Integer precio, Integer idCategoria, Integer idProveedores) {
 
         boolean flag = false;
         Session session = HibernateUtil.HibernateUtil.getSessionFactory().openSession();
@@ -64,7 +64,7 @@ public class CRUDsProductos {
             Productos insert = new Productos();
             insert = new Productos();
             
-            insert.setDescripcion(descripcion);
+            insert.setNombreProducto(nombreProducto);
             insert.setPrecio(precio);
             // aqui es donde relaciono categoria 
             Categoria categoria = new Categoria();

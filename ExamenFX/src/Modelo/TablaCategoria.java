@@ -12,12 +12,13 @@ package Modelo;
 public class TablaCategoria {
 
     private Integer idCategoria;
-    private String descripcion;
+    private String nombreCategoria;
 
-    public TablaCategoria(Integer idCategoria, String descripcion) {
+    public TablaCategoria(Integer idCategoria, String nombreCategoria) {
         this.idCategoria = idCategoria;
-        this.descripcion = descripcion;
+        this.nombreCategoria = nombreCategoria;
     }
+    
 
     /**
      * @return the idCategoria
@@ -34,17 +35,17 @@ public class TablaCategoria {
     }
 
     /**
-     * @return the descripcion
+     * @return the nombreCategoria
      */
-    public String getDescripcion() {
-        return descripcion;
+    public String getNombreCategoria() {
+        return nombreCategoria;
     }
 
     /**
-     * @param descripcion the descripcion to set
+     * @param nombreCategoria the nombreCategoria to set
      */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
     }
-    
+
 }

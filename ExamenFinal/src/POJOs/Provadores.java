@@ -1,5 +1,5 @@
 package POJOs;
-// Generated 05-nov-2024 20:57:19 by Hibernate Tools 4.3.1
+// Generated 7/11/2024 03:15:55 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,7 +12,7 @@ public class Provadores  implements java.io.Serializable {
 
 
      private Integer idProveedor;
-     private String nombre;
+     private String nombreProveedor;
      private String direccion;
      private String telefono;
      private Set<Productos> productoses = new HashSet<Productos>(0);
@@ -20,8 +20,8 @@ public class Provadores  implements java.io.Serializable {
     public Provadores() {
     }
 
-    public Provadores(String nombre, String direccion, String telefono, Set<Productos> productoses) {
-       this.nombre = nombre;
+    public Provadores(String nombreProveedor, String direccion, String telefono, Set<Productos> productoses) {
+       this.nombreProveedor = nombreProveedor;
        this.direccion = direccion;
        this.telefono = telefono;
        this.productoses = productoses;
@@ -34,12 +34,12 @@ public class Provadores  implements java.io.Serializable {
     public void setIdProveedor(Integer idProveedor) {
         this.idProveedor = idProveedor;
     }
-    public String getNombre() {
-        return this.nombre;
+    public String getNombreProveedor() {
+        return this.nombreProveedor;
     }
     
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
     }
     public String getDireccion() {
         return this.direccion;

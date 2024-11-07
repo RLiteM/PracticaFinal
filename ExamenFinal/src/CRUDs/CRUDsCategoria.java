@@ -29,7 +29,7 @@ public class CRUDsCategoria {
             Criteria criteria = session.createCriteria(Categoria.class);
             criteria.setProjection(Projections.projectionList()
                     .add(Projections.property("idCategoria"))
-                    .add(Projections.property("descripcion"))
+                    .add(Projections.property("nombreCategoria"))
             );
             criteria.addOrder(Order.desc("idCategoria"));
             lista = criteria.list();
@@ -43,7 +43,7 @@ public class CRUDsCategoria {
         return lista;
     }
 
-    public static boolean crear(String descripcion) {
+    public static boolean crear(String nombreCategoria) {
 
         boolean flag = false;
         Session session = HibernateUtil.HibernateUtil.getSessionFactory().openSession();
@@ -59,7 +59,7 @@ public class CRUDsCategoria {
             Categoria insert = new Categoria(); // si no hay if y estado se usa este
 
             insert = new Categoria();
-            insert.setDescripcion(descripcion);
+            insert.setNombreCategoria(nombreCategoria);
             session.save(insert);
             flag = true;
             //} es el if si no hay estado
@@ -74,7 +74,7 @@ public class CRUDsCategoria {
         return flag;
     }
 
-    public static boolean actualizar(Integer idCategoria, String descripcion) {
+    public static boolean actualizar(Integer idCategoria, String nombreCategoria) {
         boolean flag = false;
         Session session = HibernateUtil.HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Categoria.class);
@@ -86,7 +86,7 @@ public class CRUDsCategoria {
             transaction = session.beginTransaction();
 
             if (insert != null) { // Si la persona existe
-                insert.setDescripcion(descripcion);   // Actualiza los campos
+                insert.setNombreCategoria(nombreCategoria);   // Actualiza los campos
                 session.update(insert);     // Guarda los cambios en la base de datos
                 flag = true;                // Actualización exitosa
             }

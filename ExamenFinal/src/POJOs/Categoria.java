@@ -1,5 +1,5 @@
 package POJOs;
-// Generated 05-nov-2024 20:57:19 by Hibernate Tools 4.3.1
+// Generated 7/11/2024 03:15:55 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,14 +12,14 @@ public class Categoria  implements java.io.Serializable {
 
 
      private Integer idCategoria;
-     private String descripcion;
+     private String nombreCategoria;
      private Set<Productos> productoses = new HashSet<Productos>(0);
 
     public Categoria() {
     }
 
-    public Categoria(String descripcion, Set<Productos> productoses) {
-       this.descripcion = descripcion;
+    public Categoria(String nombreCategoria, Set<Productos> productoses) {
+       this.nombreCategoria = nombreCategoria;
        this.productoses = productoses;
     }
    
@@ -30,12 +30,12 @@ public class Categoria  implements java.io.Serializable {
     public void setIdCategoria(Integer idCategoria) {
         this.idCategoria = idCategoria;
     }
-    public String getDescripcion() {
-        return this.descripcion;
+    public String getNombreCategoria() {
+        return this.nombreCategoria;
     }
     
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
     }
     public Set<Productos> getProductoses() {
         return this.productoses;

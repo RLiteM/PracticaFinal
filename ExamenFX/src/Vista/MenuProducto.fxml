@@ -7,8 +7,29 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MenuProductoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MenuProductoController">
     <stylesheets>
-        <URL value="@menuproducto.css"/>
+        <URL value="@menuproducto.css" />
     </stylesheets>
+   <children>
+      <Label layoutX="49.0" layoutY="40.0" text="Descripcion" />
+      <Button layoutX="218.0" layoutY="108.0" mnemonicParsing="false" onAction="#btnGuardar" text="Guardar" />
+      <TextField fx:id="txtDescripcion" layoutX="144.0" layoutY="36.0" />
+      <TextField fx:id="txtPrecio" layoutX="145.0" layoutY="68.0" />
+      <Label layoutX="49.0" layoutY="72.0" text="Precio" />
+      <Label layoutX="306.0" layoutY="35.0" text="Categoria" />
+      <Label layoutX="306.0" layoutY="70.0" text="Proveedor" />
+      <Button layoutX="314.0" layoutY="108.0" mnemonicParsing="false" onAction="#btnActualizar" text="Actualizar" />
+      <TableView fx:id="tblProducto" layoutX="18.0" layoutY="157.0" onMouseClicked="#seleccionarMoficar" prefHeight="200.0" prefWidth="535.0">
+        <columns>
+          <TableColumn fx:id="colIdProducto" prefWidth="72.0" text="IdProducto" />
+            <TableColumn fx:id="colDescripcion" prefWidth="75.0" text="Descripcion" />
+          <TableColumn fx:id="colPrecio" prefWidth="154.0" text="Precio" />
+            <TableColumn fx:id="colCategoria" prefWidth="120.0" text="Categoria" />
+            <TableColumn fx:id="colProveedor" prefWidth="118.0" text="Proveedor" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="txtCategoria" layoutX="382.0" layoutY="36.0" onAction="#chCatategoria" prefWidth="150.0" />
+      <ComboBox fx:id="txtProveedor" layoutX="382.0" layoutY="68.0" onAction="#chProveedor" prefWidth="150.0" />
+   </children>
 </AnchorPane>

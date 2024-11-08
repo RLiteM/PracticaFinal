@@ -7,8 +7,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MenuProveedorController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controlador.MenuProveedorController">
     <stylesheets>
-        <URL value="@menuproveedor.css"/>
+        <URL value="@menuproveedor.css" />
     </stylesheets>
+   <children>
+      <Button layoutX="300.0" layoutY="35.0" mnemonicParsing="false" onAction="#btnGuardar" prefHeight="25.0" prefWidth="68.0" text="Guardar" />
+      <Button layoutX="300.0" layoutY="78.0" mnemonicParsing="false" onAction="#btnActualizar" text="Actualizar" />
+      <Label layoutX="41.0" layoutY="39.0" text="Nombre" />
+      <TextField fx:id="txtNombreProv" layoutX="115.0" layoutY="35.0" />
+      <TextField fx:id="txtDireccionProv" layoutX="115.0" layoutY="69.0" />
+      <Label layoutX="41.0" layoutY="73.0" text="Direccion" />
+      <Label layoutX="41.0" layoutY="109.0" text="Telefono" />
+      <TextField fx:id="txtTelefono" layoutX="115.0" layoutY="105.0" />
+      <TableView fx:id="tblProveedor" layoutX="51.0" layoutY="165.0" onMouseClicked="#selecionarModificar" prefHeight="200.0" prefWidth="490.0">
+        <columns>
+          <TableColumn fx:id="colidProveedor" prefWidth="75.0" text="idProveedor" />
+          <TableColumn fx:id="colNombreProv" prefWidth="145.0" text="Nombre Proveedor" />
+            <TableColumn fx:id="colDireccionProv" prefWidth="75.0" text="Direccion Prov" />
+            <TableColumn fx:id="colTelefonoProv" prefWidth="75.0" text="Telefono Prov" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

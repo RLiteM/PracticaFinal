@@ -31,5 +31,6 @@
       </TableView>
       <ChoiceBox fx:id="txtCatategoria" layoutX="382.0" layoutY="28.0" prefWidth="150.0" />
       <ChoiceBox fx:id="txtProveedor" layoutX="382.0" layoutY="68.0" prefWidth="150.0" />
+      <Button layoutX="26.0" layoutY="108.0" mnemonicParsing="false" onAction="#reporteProducto" text="ReporteProducto" />
    </children>
 </AnchorPane>

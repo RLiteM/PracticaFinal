@@ -81,5 +81,7 @@ public class MenuController implements Initializable {
             Logger.getLogger(MenuCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+        // este es el metodo para conectar
+     
 
 }

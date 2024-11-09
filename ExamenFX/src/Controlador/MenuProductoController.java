@@ -7,8 +7,7 @@ package Controlador;
 
 import Modelo.TablaProducto;
 import java.net.URL;
-import Modelo.TablaCategoria;
-import POJOs.Categoria;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -21,12 +20,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
+import reportespractica.factory;
 
 /**
  * FXML Controller class
@@ -224,6 +230,27 @@ private void btnActualizar(ActionEvent event) {
         txtDescripcion.setText(p.getNombreProducto());
         txtPrecio.setText(p.getPrecio()+"");
         idProductoV = p.getIdProducto();
+    }
+    
+    @FXML
+       public void reporteProducto() throws ParseException, JRException {
+        try {
+            List lista = null;
+            reportespractica.ReportesPractica.ReporteProducto();
+            lista = (factory.reporteProducto());
+            if (!lista.isEmpty()) {
+                JasperReport jasperReport = JasperCompileManager.compileReport("src/Report/reporteProducto.jrxml");
+
+                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, new JRBeanCollectionDataSource(lista));
+                JasperViewer viewer = new JasperViewer(jasperPrint, false);
+                viewer.setVisible(true);
+
+            } else {
+                System.out.println("No existe información en estas fechas");
+            }
+        } catch (JRException e) {
+            System.out.println("Error al cargar el reporte: " + e);
+        }
     }
 
     
